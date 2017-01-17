@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Tudu: We'll take it from here. </title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/lib/angular-ui-router/route.js"></script>
+    <script src="js/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="js/lib/angular-animate/angular-animate.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+    <script>
+        // Initialize Firebase with the generated key
+        var config = {
+            apiKey: "AIzaSyCtrArVKtk4ESEZ3Fa0T1_MLufg7PR_VbM",
+            authDomain: "tudu-a7656.firebaseapp.com",
+            databaseURL: "https://tudu-a7656.firebaseio.com",
+            storageBucket: "tudu-a7656.appspot.com",
+            messagingSenderId: "20389683238"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/services/auth.js"></script>
+    <script src="js/controllers/registration.js"></script>
+    <script src="js/controllers/success.js"></script>
+
+</head>
+<body>
+<header>
+    <nav ng-include="'views/nav.html'"></nav>
+</header>
+<div ng-show="currentUser" ng-controller="RegistrationController">
+<span> Welcome back {{currentUser.firstname}} {{currentUser.lastname}}</span>
+    <a ng-href="#/logout" ng-click="logout()">logout</a>
+</div>
+<div class="page" ng-view>
+    <main class="cf">
+
+
+    </main>
+</div>
+</body>
+</html>
